@@ -1,0 +1,68 @@
+{
+	"name": "fiwerobo",
+	"version": "1.0.0",
+	"description": "Connector application for multiple forex services",
+	"main": "start.js",
+	"scripts": {
+    "start":"nodemon start.js",
+		"test": "nodemon start.js --test"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/redcodearmy/fx-connector.git"
+	},
+	"keywords": [
+		"fx",
+		"trade",
+		"websocket",
+		"restful",
+		"price",
+		"provider"
+	],
+	"author": "Shaman Coders",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/shamancoders/fiwe/issues"
+	},
+	"homepage": "https://github.com/shamancoders/fiwe#readme",
+	"dependencies": {
+		"atob": "^2.1.2",
+		"body-parser": "^1.19.1",
+		"btoa": "^1.2.1",
+		"colors": "^1.4.0",
+		"cookie-parser": "^1.4.6",
+		"debug": "~2.6.9",
+		"eval": "^0.1.6",
+		"express": "^4.17.1",
+		"express-session": "^1.17.2",
+		"http-errors": "~1.6.3",
+		"jsonwebtoken": "^8.5.1",
+		"method-override": "^3.0.0",
+		"monaco-editor": "^0.33.0",
+		"monaco-sql-languages": "^0.9.4",
+		"mongodb": "^4.2.2",
+		"mongoose": "^6.1.2",
+		"mongoose-aggregate-paginate-v2": "^1.0.42",
+		"mongoose-paginate-v2": "^1.4.2",
+		"morgan": "~1.9.1",
+		"mssql": "^8.1.2",
+		"multer": "^1.4.4",
+		"mysql": "^2.18.1",
+		"node-cmd": "^5.0.0",
+		"node-cron": "^3.0.0",
+		"node-mailer": "^0.1.1",
+		"nodemailer-smtp-transport": "^2.7.4",
+		"object-sizeof": "^1.6.1",
+		"pg": "^8.7.3",
+		"read-excel-file": "^5.3.2",
+		"redis": "^4.0.6",
+		"serve-favicon": "^2.5.0",
+		"socket.io": "^4.4.1",
+		"socket.io-client": "^4.4.1",
+		"urllib": "^2.38.0",
+		"use-strict": "^1.0.1",
+		"uuid": "^8.3.2",
+		"websocket": "^1.0.34",
+		"ws": "^8.3.0"
+	}
+}

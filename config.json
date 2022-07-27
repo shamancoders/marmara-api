@@ -1,0 +1,58 @@
+{
+	"name": "marmara-api",
+	"version": "1.0.0",
+	"description": "Pratic accounting system",
+	"httpserver": {
+		"port": 7771
+	},
+	"mongodb": {
+		"master": "mongodb://127.0.0.1:27017/marmara"
+	},
+	"websocketApi": {
+		"socketCorsDomainList": [],
+		"pingInterval": 5000,
+		"namespace": "/ws/v1"
+	},
+	"token": {
+		"phrase": "helloSecretWorld",
+		"expiresIn": 34560000
+	},
+  "smsSender": {
+		"url": "https://sms.verimor.com.tr/v2/send.json",
+		"method": "POST",
+		"user": "902167060842",
+		"pass": "atabar18"
+	},
+	"mail": {
+		"host": "smtp.yandex.com",
+		"port": 587,
+		"secure": false,
+		"auth": {
+			"user": "keloglan@tr216.com",
+			"pass": "atabar18"
+		},
+		"adminMail": "alitek@gmail.com"
+	},
+  "senderTemplates": {
+		"sendAuthCode": {
+			"mail": {
+				"subject": "Marmara Onay Kodu",
+				"body": "Marmara Onay Kodunuz : <b>${authCode}</b><br><small>Kullanıcı: ${username}</small>"
+			},
+			"sms": {
+				"body": "${authCode} Marmara Onay Kodunuz. Kullanıcı: ${username}   "
+			}
+		},
+		"sendForgotPassword": {
+			"mail": {
+				"subject": "Parola Sıfırla",
+				"body": "Parola Sıfırlama Linkiniz : <a href='http://test.fiwerobo.com/login.html?resetCode=${resetPassCode}#reset' target='_blank'>TIKLAYINIZ</a> <br><br><small>Kullanıcı: ${username}</small>"
+			},
+			"sms": {
+				"body": "Marmara Sifreniz: ${password}     "
+			}
+		}
+	},
+	"tmpDir": "c:/arge/temp",
+	"status": "development"
+}
