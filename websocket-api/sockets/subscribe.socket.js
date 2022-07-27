@@ -23,6 +23,7 @@ module.exports = (socket, token, deviceInfo) => {
 	              socket.clientInfo.IP=socket.conn.remoteAddress
                 socket.subscribed = true
                 socket.emit('subscribed', 'Subscription was successful')
+                eventLog(`[WebsocketAPI]`.cyan,socket.clientInfo.username,`subscribed`)
               })
               .catch(err => socket.emit('error', err))
           }

@@ -60,17 +60,19 @@ function getResponseInterval(min, max) {
 
 module.exports = (socket, data) => {
   console.log(`fetch_response data`, data)
+  
   if(!socket.subscribed){
+    console.log(`socket.subscribed degil`, )
     return socket.emit('error',{name:'AUTH',message:'Authentication failed'})
   }
-  let { memberId } = data
+  const { memberId } = data
   let responseInterval = getResponseInterval(1000, 4000);
 
   setTimeout(() => {
-    socket.emit("start_typing", memberId);
+    socket.emit("start_typing", {memberId});
 
     setTimeout(() => {
-      socket.emit("stop_typing", memberId);
+      socket.emit("stop_typing", {memberId});
       socket.emit("fetch_response", {
         memberId,
         response: getRandomSentence(),

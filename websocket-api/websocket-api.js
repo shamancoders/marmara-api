@@ -67,16 +67,14 @@ module.exports = function (httpServer) {
 					if (socket && socket.uuid && socketClients[socket.uuid]) {
 						socketClients[socket.uuid] = undefined
 						delete socketClients[socket.uuid]
-						console.log(`disconnected :`, socket.uuid)
+						eventLog(`[WebsocketAPI]`.cyan,socket.clientInfo.username,`disconnected`)
 						logTotalClients()
 					}
 				})
 
-								
 				Object.keys(moduleHolder).forEach((key) => {
 					socket.on(key, (...placeholders) => {
 						try {
-              console.log(`key`, key)
 							moduleHolder[key](socket, ...placeholders)
 						} catch (err) {
 							errorLog('[WebsocketAPI]'.cyan, key.green, err.name, err.message)
@@ -94,12 +92,15 @@ module.exports = function (httpServer) {
 
 
 global.purgeSocket = (socket) => {
-	clearInterval(socket.pingIntervalId)
+	socket.disconnect()
+  clearInterval(socket.pingIntervalId)
 	clearInterval(socket.timeIntervalId)
 
 	delete global.socketClients[socket.uuid]
 
-	clean(socket)
+  socket=undefined
+
+	// clean(socket)
 }
 
 function socketModuleLoader(folder, suffix) {
@@ -126,5 +127,5 @@ function socketModuleLoader(folder, suffix) {
 }
 
 function logTotalClients() {
-	eventLog(`Total connected socket clients:`, Object.keys(socketClients).length)
+	eventLog(`[WebsocketAPI]`.cyan,`Total Clients:`, Object.keys(socketClients).length)
 }
